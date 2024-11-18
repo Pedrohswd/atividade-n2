@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
       );
       
       if (!hasRequiredRole) {
-        this.router.navigate(['/unauthorized']);
+        alert(`Você não tem permissão`);
         return false;
       }
     }

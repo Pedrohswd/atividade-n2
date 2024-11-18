@@ -75,16 +75,4 @@ export class UserService {
 
     return this.http.get<any>(`${this.apiUrl}/search?${queryParams.toString()}`);
   }
-
-  // Exportar lista de usuários
-  exportUsers(format: 'csv' | 'xlsx'): Observable<Blob> {
-    const headers = new HttpHeaders({
-      'Accept': format === 'csv' ? 'text/csv' : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    });
-
-    return this.http.get(`${this.apiUrl}/export/${format}`, {
-      headers,
-      responseType: 'blob'
-    });
-  }
 }
